@@ -1,0 +1,84 @@
+---
+layout: post
+title: Project 2
+---
+
+Aside from general nostalgia, a look at the Billboard Hits dataset from the year 2000
+provides an interesting snap shot at both the music industry and some insight into
+what makes a hit song.
+
+Random Data Fact!
+
+One interesting note about the data is the extreme number of songs that were on the
+Billboard list for exactly 20 weeks. Is there something about the way Billboard
+collects its data that cuts off certain songs after 20 weeks?
+
+![Top20_weeks](/images/Total Weeks on List.png)
+
+![Week_v_toprank](/images/Weeks vs Top Rank.png)
+
+What is Considered a Hit?
+
+There are many ways for a song to be considered a hit. A song could rise to the
+top 10 on the Billboard list in a given week. A song could maintain its status on
+the charts for an extended period of time. I was curious whether there was a way to
+predict either of these measures of success using the available data.
+
+My initial thought was to test whether the number of weeks a song was on the Billboard
+list was predictive of the top rank that the song achieved. Or, conversely, maybe
+the top rank a song achieved was predictive of number of weeks a song lasted on the
+Billboard list.
+
+Running two simple, one variable OLS regression measuring number of weeks on the
+Billboard list against the top rank (and vice versa) showed no relationship. Both
+models had r-squared figures below 0.3. Measuring the number of weeks on the list
+against top rank actually had a positive, significant coefficient on the number of
+weeks variable.
+
+Including the debut rank as an additional independent variable (along with the number
+of weeks on the list) appears to be a much better fit. The r-squared figure raises
+to .91 and the number of weeks variable has the expected sign. For each additional week
+on the Billboard chart, the expected top rank was just over two places better.
+Meanwhile, the relationship between the debut rank and the top rank was almost
+one-to-one. For each individual debut rank closer to 100, the top rank increased
+by one.
+
+OLS Regression Results
+==============================================================================
+Dep. Variable:              best_rank   R-squared:                       0.911
+Model:                            OLS   Adj. R-squared:                  0.910
+Method:                 Least Squares   F-statistic:                     1607.
+Date:                Wed, 22 Jun 2016   Prob (F-statistic):          5.55e-166
+Time:                        14:26:08   Log-Likelihood:                -1324.8
+No. Observations:                 317   AIC:                             2654.
+Df Residuals:                     315   BIC:                             2661.
+Df Model:                           2
+Covariance Type:            nonrobust
+=================================================================================
+coef    std err          t      P>|t|      [95.0% Conf. Int.]
+---------------------------------------------------------------------------------
+weeks_on_list    -2.0238      0.088    -23.080      0.000        -2.196    -1.851
+week1rank         0.9681      0.021     47.139      0.000         0.928     1.009
+==============================================================================
+Omnibus:                       14.571   Durbin-Watson:                   1.861
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               20.129
+Skew:                          -0.358   Prob(JB):                     4.26e-05
+Kurtosis:                       4.006   Cond. No.                         8.32
+==============================================================================
+
+Additional Questions!
+
+My research into the annual Billboard Top 100 List raised additional questions that
+I was unable to verify with the data provided.
+
+Does the success of one song by an artist generally precede additional hit songs?
+There are a number of songs that disappear from the charts before returning. What causes
+a return to the list? Maybe a music video or an appearance in a movie or awards show?
+
+There are also, of course, other ways to look at the data. What to make of the Genre
+field, which doesn't seem to fit with genre expectations (after all, I am the expert
+guest on the 'Are You Entertained' podcast).
+
+The length of the track might matter as well. Many hit songs follow a traditional
+pattern (a couple verses separated by a catchy hook), and songs that do not follow
+this format might have a harder time reaching the Billboard charts.
