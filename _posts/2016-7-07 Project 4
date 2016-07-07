@@ -1,0 +1,43 @@
+---
+layout: post
+title: Project 4
+---
+
+How Much Does Your Job Title Reflect Your Job Responsibilities
+A Look at Data Scientist Salaries from Indeed Job Postings
+
+My goal for this project was to determine whether it was possible to predict the
+salary of a job posting on Indeed based mostly on the job title and job location.
+A search on Indeed.com for Data Scientist jobs paying at least a $20,000 / year
+salary in 13 different cities, I was left with a sample of 230 different jobs
+from 126 different companies that offered a salary or salary range in the job posting.
+
+Washington, DC offered the most job opportunities with 45, but the most lucrative
+place to work was Seattle, where the ten job postings carried an average of $146,500.
+Not surprisingly, San Francisco, New York, and Chicago were also lucrative places
+to work. Both New York and Philadelphia have job postings for $250,000, which tied
+for the highest in the data.
+
+The median salary for the entire dataset was $112,500.
+
+Financially, Miami is the worst place to look for a Data Scientist position. Of the
+eight job postings, none offered a salary above the median for the dataset. San
+Francisco offered the job with the lowest salary: $21,295.
+
+There are four companies with at least 10 different job postings: Workbridge Associates,
+All-In Analytics, Jobspring Partners, and Smith Hanley Associates.
+
+While a logistic regression did not show a strong relationship between location
+and expected salary, it was clear that a few cities, specifically Seattle, San
+Francisco, New York, and Chicago had a statistically significant impact on expected
+salary (as represented by above or below the median).
+
+Slightly altering the model to account for specific words in the job title showed
+a slight impact. Job titles with the words "senior" or "manager" tended to pay more.
+
+
+Extra Notes:
+1. Cities included New York, Chicago, San Francisco, Austin, Atlanta, Seattle, Miami,
+Los Angeles, Boston, Philadelphia, Washington DC, San Diego, and Raleigh.
+2. A key assumption is that each job posting on Indeed represents a single job
+opening.
